@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tree" model="ir.ui.view">
+        <field name="name">view.tree</field>
+        <field name="model">custom.model</field>
+        <field name="arch" type="xml">
+            <tree>
+            	<field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form" model="ir.ui.view">
+        <field name="name">view.form</field>
+        <field name="model">custom.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_inherit" model="ir.ui.view">
+        <field name="name">view.inherit</field>
+        <field name="model">custom.model</field>
+        <field name="inherit_id" ref="module.view_name"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="name"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_" model="ir.actions.act_window">
+        <field name="name">Action Name</field>
+        <field name="res_model">custom.model</field>
+        <field name="view_id" ref="view_tree"/>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new custom object.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_" name="Menu Name" sequence="1" action="action_" parent="menu_"/>
+
+</odoo>

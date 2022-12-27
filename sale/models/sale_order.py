@@ -11,7 +11,7 @@ from odoo.osv import expression
 from odoo.tools import float_is_zero, html_keep_url, is_html_empty
 
 from odoo.addons.payment import utils as payment_utils
-
+#comment 1
 class SaleOrder(models.Model):
     _name = "sale.order"
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
